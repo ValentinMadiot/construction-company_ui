@@ -39,22 +39,22 @@ const bgHeader = () => {
 };
 
 window.addEventListener("scroll", bgHeader);
-bgHeader()
+bgHeader();
 
-/*=============== SWIPER SERVICES ===============*/ 
-const swiperServices = new Swiper('.services__swiper', {
+/*=============== SWIPER SERVICES ===============*/
+const swiperServices = new Swiper(".services__swiper", {
   loop: true,
   grabCursor: true,
   spaceBetween: 24,
-  slidesPerView: 'auto',
+  slidesPerView: "auto",
 
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
-})
+});
 
-/*=============== SHOW SCROLL UP ===============*/ 
+/*=============== SHOW SCROLL UP ===============*/
 const scrollUp = () => {
   const scrollUpElement = document.getElementById("scroll-up");
   // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
@@ -89,3 +89,18 @@ const scrollActive = () => {
 window.addEventListener("scroll", scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "100px",
+  duration: 1500,
+  delay: 200,
+  // reset: true, // Animation repeat
+});
+
+sr.reveal(
+  ".home__content, .services__data, .services__swiper, .footer__container"
+);
+sr.reveal(".home__images", { origin: "bottom", delay: 500 });
+sr.reveal(".about__images, .contact__img", { origin: "left" });
+sr.reveal(".about__data, .contact__data", { origin: "right" });
+sr.reveal(".projects__card", { interval: 50 });
